@@ -27,16 +27,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.Component;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import static java.util.Objects.requireNonNull;
 
-final class BookImpl implements Book, Examinable {
+final class BookImpl implements Book {
   private final Component title;
   private final Component author;
   private final List<Component> pages;
@@ -78,15 +74,6 @@ final class BookImpl implements Book, Examinable {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("title", this.title),
-      ExaminableProperty.of("author", this.author),
-      ExaminableProperty.of("pages", this.pages)
-    );
-  }
-
-  @Override
   public boolean equals(final Object o) {
     if(this == o) return true;
     if(!(o instanceof BookImpl)) return false;
@@ -105,8 +92,12 @@ final class BookImpl implements Book, Examinable {
   }
 
   @Override
-  public String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
+  public @NonNull String toString() {
+    return "BookImpl{" +
+      "title=" + this.title +
+      ", author=" + this.author +
+      ", pages=" + this.pages +
+      '}';
   }
 
   static final class BuilderImpl implements Book.Builder {

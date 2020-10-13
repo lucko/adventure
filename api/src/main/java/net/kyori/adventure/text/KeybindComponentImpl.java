@@ -25,9 +25,7 @@ package net.kyori.adventure.text;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -79,13 +77,12 @@ final class KeybindComponentImpl extends AbstractComponent implements KeybindCom
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.concat(
-      Stream.of(
-        ExaminableProperty.of("keybind", this.keybind)
-      ),
-      super.examinableProperties()
-    );
+  public @NonNull String toString() {
+    return "KeybindComponentImpl{" +
+      "keybind='" + this.keybind + '\'' +
+      ", children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 
   @Override

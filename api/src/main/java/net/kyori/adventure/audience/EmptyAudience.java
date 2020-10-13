@@ -57,7 +57,7 @@ final class EmptyAudience implements Audience {
   }
 
   @Override
-  public String toString() {
+  public @NonNull String toString() {
     return "EmptyAudience";
   }
 }

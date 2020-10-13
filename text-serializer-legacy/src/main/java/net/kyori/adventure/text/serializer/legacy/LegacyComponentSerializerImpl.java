@@ -324,7 +324,7 @@ class LegacyComponentSerializerImpl implements LegacyComponentSerializer {
     }
 
     @Override
-    public String toString() {
+    public @NonNull String toString() {
       return this.sb.toString();
     }
 

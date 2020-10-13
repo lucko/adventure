@@ -27,20 +27,16 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.event.HoverEventSource;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import static java.util.Objects.requireNonNull;
 
-final class StyleImpl implements Style, Examinable {
+final class StyleImpl implements Style {
   static final StyleImpl EMPTY = new StyleImpl(null, null, TextDecoration.State.NOT_SET, TextDecoration.State.NOT_SET, TextDecoration.State.NOT_SET, TextDecoration.State.NOT_SET, TextDecoration.State.NOT_SET, null, null, null);
   private static final TextDecoration[] DECORATIONS = TextDecoration.values();
   private final @Nullable Key font;
@@ -234,24 +230,19 @@ final class StyleImpl implements Style, Examinable {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("color", this.color),
-      ExaminableProperty.of("obfuscated", this.obfuscated),
-      ExaminableProperty.of("bold", this.bold),
-      ExaminableProperty.of("strikethrough", this.strikethrough),
-      ExaminableProperty.of("underlined", this.underlined),
-      ExaminableProperty.of("italic", this.italic),
-      ExaminableProperty.of("clickEvent", this.clickEvent),
-      ExaminableProperty.of("hoverEvent", this.hoverEvent),
-      ExaminableProperty.of("insertion", this.insertion),
-      ExaminableProperty.of("font", this.font)
-    );
-  }
-
-  @Override
   public @NonNull String toString() {
-    return StringExaminer.simpleEscaping().examine(this);
+    return "StyleImpl{" +
+      "font=" + this.font +
+      ", color=" + this.color +
+      ", obfuscated=" + this.obfuscated +
+      ", bold=" + this.bold +
+      ", strikethrough=" + this.strikethrough +
+      ", underlined=" + this.underlined +
+      ", italic=" + this.italic +
+      ", clickEvent=" + this.clickEvent +
+      ", hoverEvent=" + this.hoverEvent +
+      ", insertion='" + this.insertion + '\'' +
+      '}';
   }
 
   @Override

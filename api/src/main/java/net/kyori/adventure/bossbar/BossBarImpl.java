@@ -29,17 +29,13 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.util.Listenable;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import static java.util.Objects.requireNonNull;
 
-final class BossBarImpl extends Listenable<BossBar.Listener> implements BossBar, Examinable {
+final class BossBarImpl extends Listenable<BossBar.Listener> implements BossBar {
   private static final BiConsumer<BossBarImpl, Set<Flag>> FLAGS_ADDED = (bar, flagsAdded) -> bar.forEachListener(listener -> listener.bossBarFlagsChanged(bar, flagsAdded, Collections.emptySet()));
   private static final BiConsumer<BossBarImpl, Set<Flag>> FLAGS_REMOVED = (bar, flagsRemoved) -> bar.forEachListener(listener -> listener.bossBarFlagsChanged(bar, Collections.emptySet(), flagsRemoved));
   private Component name;
@@ -242,18 +238,13 @@ final class BossBarImpl extends Listenable<BossBar.Listener> implements BossBar,
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("name", this.name),
-      ExaminableProperty.of("percent", this.percent),
-      ExaminableProperty.of("color", this.color),
-      ExaminableProperty.of("overlay", this.overlay),
-      ExaminableProperty.of("flags", this.flags)
-    );
-  }
-
-  @Override
-  public String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
+  public @NonNull String toString() {
+    return "BossBarImpl{" +
+      "name=" + this.name +
+      ", percent=" + this.percent +
+      ", color=" + this.color +
+      ", overlay=" + this.overlay +
+      ", flags=" + this.flags +
+      '}';
   }
 }

@@ -28,17 +28,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import static java.util.Objects.requireNonNull;
 
-final class TranslationRegistryImpl implements Examinable, TranslationRegistry {
+final class TranslationRegistryImpl implements TranslationRegistry {
   private final Key name;
   private final Map<String, Translation> translations = new ConcurrentHashMap<>();
   private Locale defaultLocale = Locale.US; // en_us
@@ -75,11 +71,6 @@ final class TranslationRegistryImpl implements Examinable, TranslationRegistry {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(ExaminableProperty.of("translations", this.translations));
-  }
-
-  @Override
   public boolean equals(final Object other) {
     if(this == other) return true;
     if(!(other instanceof TranslationRegistryImpl)) return false;
@@ -97,11 +88,15 @@ final class TranslationRegistryImpl implements Examinable, TranslationRegistry {
   }
 
   @Override
-  public String toString() {
-    return StringExaminer.simpleEscaping().examine(this);
+  public @NonNull String toString() {
+    return "TranslationRegistryImpl{" +
+      "name=" + this.name +
+      ", translations=" + this.translations +
+      ", defaultLocale=" + this.defaultLocale +
+      '}';
   }
 
-  final class Translation implements Examinable {
+  final class Translation {
     private final String key;
     private final Map<Locale, MessageFormat> formats;
 
@@ -131,14 +126,6 @@ final class TranslationRegistryImpl implements Examinable, TranslationRegistry {
     }
 
     @Override
-    public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-      return Stream.of(
-        ExaminableProperty.of("key", this.key),
-        ExaminableProperty.of("formats", this.formats)
-      );
-    }
-
-    @Override
     public boolean equals(final Object other) {
       if(this == other) return true;
       if(!(other instanceof Translation)) return false;
@@ -153,8 +140,11 @@ final class TranslationRegistryImpl implements Examinable, TranslationRegistry {
     }
 
     @Override
-    public String toString() {
-      return StringExaminer.simpleEscaping().examine(this);
+    public @NonNull String toString() {
+      return "Translation{" +
+        "key='" + this.key + '\'' +
+        ", formats=" + this.formats +
+        '}';
     }
   }
 }

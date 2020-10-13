@@ -26,10 +26,8 @@ package net.kyori.adventure.text;
 import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.util.ShadyPines;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -92,13 +90,14 @@ final class BlockNBTComponentImpl extends NBTComponentImpl<BlockNBTComponent, Bl
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.concat(
-      Stream.of(
-        ExaminableProperty.of("pos", this.pos)
-      ),
-      super.examinableProperties()
-    );
+  public @NonNull String toString() {
+    return "BlockNBTComponentImpl{" +
+      "pos=" + this.pos +
+      ", nbtPath='" + this.nbtPath + '\'' +
+      ", interpret=" + this.interpret +
+      ", children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 
   @Override
@@ -176,7 +175,7 @@ final class BlockNBTComponentImpl extends NBTComponentImpl<BlockNBTComponent, Bl
     }
 
     @Override
-    public String toString() {
+    public @NonNull String toString() {
       return String.format("^%f ^%f ^%f", this.left, this.up, this.forwards);
     }
 
@@ -231,7 +230,7 @@ final class BlockNBTComponentImpl extends NBTComponentImpl<BlockNBTComponent, Bl
     }
 
     @Override
-    public String toString() {
+    public @NonNull String toString() {
       return this.x.toString() + ' ' + this.y.toString() + ' ' + this.z.toString();
     }
 
@@ -276,7 +275,7 @@ final class BlockNBTComponentImpl extends NBTComponentImpl<BlockNBTComponent, Bl
       }
 
       @Override
-      public String toString() {
+      public @NonNull String toString() {
         return (this.type == Type.RELATIVE ? "~" : "") + this.value;
       }
     }

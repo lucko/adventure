@@ -29,8 +29,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -214,8 +212,10 @@ final class CompoundBinaryTagImpl implements CompoundBinaryTag {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(ExaminableProperty.of("tags", this.tags));
+  public @NonNull String toString() {
+    return "CompoundBinaryTagImpl{" +
+      "tags=" + this.tags +
+      '}';
   }
 
   @Override

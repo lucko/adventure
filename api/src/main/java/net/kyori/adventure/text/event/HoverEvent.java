@@ -26,7 +26,6 @@ package net.kyori.adventure.text.event;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.function.UnaryOperator;
-import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.nbt.api.BinaryTagHolder;
 import net.kyori.adventure.text.Component;
@@ -34,9 +33,6 @@ import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.StyleBuilderApplicable;
 import net.kyori.adventure.text.renderer.ComponentRenderer;
 import net.kyori.adventure.util.Index;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.index.qual.NonNegative;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -52,7 +48,7 @@ import static java.util.Objects.requireNonNull;
  * @param <V> the value type
  * @since 4.0.0
  */
-public final class HoverEvent<V> implements Examinable, HoverEventSource<V>, StyleBuilderApplicable {
+public final class HoverEvent<V> implements HoverEventSource<V>, StyleBuilderApplicable {
   /**
    * Creates a hover event that shows text on hover.
    *
@@ -236,16 +232,11 @@ public final class HoverEvent<V> implements Examinable, HoverEventSource<V>, Sty
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("action", this.action),
-      ExaminableProperty.of("value", this.value)
-    );
-  }
-
-  @Override
-  public String toString() {
-    return StringExaminer.simpleEscaping().examine(this);
+  public @NonNull String toString() {
+    return "HoverEvent{" +
+      "action=" + this.action +
+      ", value=" + this.value +
+      '}';
   }
 
   /**
@@ -253,7 +244,7 @@ public final class HoverEvent<V> implements Examinable, HoverEventSource<V>, Sty
    *
    * @since 4.0.0
    */
-  public static final class ShowItem implements Examinable {
+  public static final class ShowItem {
     private final Key item;
     private final int count;
     private final @Nullable BinaryTagHolder nbt;
@@ -372,12 +363,12 @@ public final class HoverEvent<V> implements Examinable, HoverEventSource<V>, Sty
     }
 
     @Override
-    public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-      return Stream.of(
-        ExaminableProperty.of("item", this.item),
-        ExaminableProperty.of("count", this.count),
-        ExaminableProperty.of("nbt", this.nbt)
-      );
+    public @NonNull String toString() {
+      return "ShowItem{" +
+        "item=" + this.item +
+        ", count=" + this.count +
+        ", nbt=" + this.nbt +
+        '}';
     }
   }
 
@@ -386,7 +377,7 @@ public final class HoverEvent<V> implements Examinable, HoverEventSource<V>, Sty
    *
    * @since 4.0.0
    */
-  public static final class ShowEntity implements Examinable {
+  public static final class ShowEntity {
     private final Key type;
     private final UUID id;
     private final Component name;
@@ -505,12 +496,12 @@ public final class HoverEvent<V> implements Examinable, HoverEventSource<V>, Sty
     }
 
     @Override
-    public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-      return Stream.of(
-        ExaminableProperty.of("type", this.type),
-        ExaminableProperty.of("id", this.id),
-        ExaminableProperty.of("name", this.name)
-      );
+    public @NonNull String toString() {
+      return "ShowEntity{" +
+        "type=" + this.type +
+        ", id=" + this.id +
+        ", name=" + this.name +
+        '}';
     }
   }
 

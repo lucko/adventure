@@ -25,13 +25,9 @@ package net.kyori.adventure.text.event;
 
 import java.net.URL;
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.StyleBuilderApplicable;
 import net.kyori.adventure.util.Index;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -44,7 +40,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @since 4.0.0
  */
-public final class ClickEvent implements Examinable, StyleBuilderApplicable {
+public final class ClickEvent implements StyleBuilderApplicable {
   /**
    * Creates a click event that opens a url.
    *
@@ -196,16 +192,11 @@ public final class ClickEvent implements Examinable, StyleBuilderApplicable {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("action", this.action),
-      ExaminableProperty.of("value", this.value)
-    );
-  }
-
-  @Override
-  public String toString() {
-    return StringExaminer.simpleEscaping().examine(this);
+  public @NonNull String toString() {
+    return "ClickEvent{" +
+      "action=" + this.action +
+      ", value='" + this.value + '\'' +
+      '}';
   }
 
   /**

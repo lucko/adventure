@@ -24,15 +24,11 @@
 package net.kyori.adventure.sound;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-abstract class SoundStopImpl implements Examinable, SoundStop {
+abstract class SoundStopImpl implements SoundStop {
   static final SoundStop ALL = new SoundStopImpl(null) {
     @Override
     public @Nullable Key sound() {
@@ -67,15 +63,10 @@ abstract class SoundStopImpl implements Examinable, SoundStop {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("name", this.sound()),
-      ExaminableProperty.of("source", this.source)
-    );
-  }
-
-  @Override
-  public String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
+  public @NonNull String toString() {
+    return "SoundStopImpl{" +
+      "name=" + this.sound() +
+      ", source=" + this.source +
+      '}';
   }
 }

@@ -119,7 +119,7 @@ public enum TextDecoration implements StyleBuilderApplicable, TextFormat {
     }
 
     @Override
-    public String toString() {
+    public @NonNull String toString() {
       return this.name;
     }
 

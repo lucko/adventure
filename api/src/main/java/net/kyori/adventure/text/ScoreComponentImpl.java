@@ -25,9 +25,7 @@ package net.kyori.adventure.text;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -109,15 +107,14 @@ final class ScoreComponentImpl extends AbstractComponent implements ScoreCompone
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.concat(
-      Stream.of(
-        ExaminableProperty.of("name", this.name),
-        ExaminableProperty.of("objective", this.objective),
-        ExaminableProperty.of("value", this.value)
-      ),
-      super.examinableProperties()
-    );
+  public @NonNull String toString() {
+    return "ScoreComponentImpl{" +
+      "name='" + this.name + '\'' +
+      ", objective='" + this.objective + '\'' +
+      ", value='" + this.value + '\'' +
+      ", children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 
   @Override

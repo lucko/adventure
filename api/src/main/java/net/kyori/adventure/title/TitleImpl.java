@@ -25,15 +25,11 @@ package net.kyori.adventure.title;
 
 import java.time.Duration;
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.Component;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-final class TitleImpl implements Examinable, Title {
+final class TitleImpl implements Title {
   private final Component title;
   private final Component subtitle;
   private final @Nullable Times times;
@@ -78,20 +74,15 @@ final class TitleImpl implements Examinable, Title {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("title", this.title),
-      ExaminableProperty.of("subtitle", this.subtitle),
-      ExaminableProperty.of("times", this.times)
-    );
+  public @NonNull String toString() {
+    return "TitleImpl{" +
+      "title=" + this.title +
+      ", subtitle=" + this.subtitle +
+      ", times=" + this.times +
+      '}';
   }
 
-  @Override
-  public String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
-  }
-
-  static class TimesImpl implements Examinable, Times {
+  static class TimesImpl implements Times {
     private final Duration fadeIn;
     private final Duration stay;
     private final Duration fadeOut;
@@ -136,17 +127,12 @@ final class TitleImpl implements Examinable, Title {
     }
 
     @Override
-    public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-      return Stream.of(
-        ExaminableProperty.of("fadeIn", this.fadeIn),
-        ExaminableProperty.of("stay", this.stay),
-        ExaminableProperty.of("fadeOut", this.fadeOut)
-      );
-    }
-
-    @Override
-    public String toString() {
-      return this.examine(StringExaminer.simpleEscaping());
+    public @NonNull String toString() {
+      return "TimesImpl{" +
+        "fadeIn=" + this.fadeIn +
+        ", stay=" + this.stay +
+        ", fadeOut=" + this.fadeOut +
+        '}';
     }
   }
 }

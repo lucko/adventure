@@ -23,14 +23,10 @@
  */
 package net.kyori.adventure.key;
 
-import java.util.stream.Stream;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-final class KeyedValueImpl<T> implements Examinable, KeyedValue<T> {
+final class KeyedValueImpl<T> implements KeyedValue<T> {
   private final Key key;
   private final T value;
 
@@ -65,15 +61,10 @@ final class KeyedValueImpl<T> implements Examinable, KeyedValue<T> {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("key", this.key),
-      ExaminableProperty.of("value", this.value)
-    );
-  }
-
-  @Override
-  public String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
+  public @NonNull String toString() {
+    return "KeyedValueImpl{" +
+      "key=" + this.key +
+      ", value=" + this.value +
+      '}';
   }
 }

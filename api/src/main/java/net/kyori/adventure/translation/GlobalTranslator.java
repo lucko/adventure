@@ -26,7 +26,6 @@ package net.kyori.adventure.translation;
 import java.util.Locale;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.renderer.TranslatableComponentRenderer;
-import net.kyori.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
@@ -34,7 +33,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  *
  * @since 4.0.0
  */
-public interface GlobalTranslator extends Translator, Examinable {
+public interface GlobalTranslator extends Translator {
   /**
    * Gets the global translation source.
    *

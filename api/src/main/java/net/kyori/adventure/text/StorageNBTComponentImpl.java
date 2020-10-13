@@ -25,10 +25,8 @@ package net.kyori.adventure.text;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.format.Style;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -91,13 +89,14 @@ final class StorageNBTComponentImpl extends NBTComponentImpl<StorageNBTComponent
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.concat(
-      Stream.of(
-        ExaminableProperty.of("storage", this.storage)
-      ),
-      super.examinableProperties()
-    );
+  public @NonNull String toString() {
+    return "StorageNBTComponentImpl{" +
+      "storage=" + this.storage +
+      ", nbtPath='" + this.nbtPath + '\'' +
+      ", interpret=" + this.interpret +
+      ", children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 
   @Override

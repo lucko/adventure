@@ -28,10 +28,8 @@ import java.util.Collections;
 import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.renderer.TranslatableComponentRenderer;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -78,10 +76,5 @@ final class GlobalTranslatorImpl implements GlobalTranslator {
       if(translation != null) return translation;
     }
     return null;
-  }
-
-  @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(ExaminableProperty.of("sources", this.sources));
   }
 }

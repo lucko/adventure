@@ -30,7 +30,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -104,14 +103,13 @@ final class TranslatableComponentImpl extends AbstractComponent implements Trans
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.concat(
-      Stream.of(
-        ExaminableProperty.of("key", this.key),
-        ExaminableProperty.of("args", this.args)
-      ),
-      super.examinableProperties()
-    );
+  public @NonNull String toString() {
+    return "TranslatableComponentImpl{" +
+      "key='" + this.key + '\'' +
+      ", args=" + this.args +
+      ", children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 
   @Override

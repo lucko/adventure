@@ -29,12 +29,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.util.IntFunction2;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -43,7 +39,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @since 4.0.0
  */
-public abstract class AbstractComponent implements Component, Examinable {
+public abstract class AbstractComponent implements Component {
   static List<Component> asComponents(final List<? extends ComponentLike> list) {
     if(list.isEmpty()) {
       // We do not need to create a new list if the one we are copying is empty - we can
@@ -115,15 +111,10 @@ public abstract class AbstractComponent implements Component, Examinable {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("children", this.children),
-      ExaminableProperty.of("style", this.style)
-    );
-  }
-
-  @Override
-  public String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
+  public @NonNull String toString() {
+    return "AbstractComponent{" +
+      "children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 }

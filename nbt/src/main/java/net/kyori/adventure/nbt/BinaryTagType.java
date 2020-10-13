@@ -156,7 +156,7 @@ public abstract class BinaryTagType<T extends BinaryTag> implements Predicate<Bi
     }
 
     @Override
-    public String toString() {
+    public @NonNull String toString() {
       return BinaryTagType.class.getSimpleName() + '[' + this.type.getSimpleName() + " " + this.id + "]";
     }
 
@@ -171,7 +171,7 @@ public abstract class BinaryTagType<T extends BinaryTag> implements Predicate<Bi
       }
 
       @Override
-      public String toString() {
+      public @NonNull String toString() {
         return BinaryTagType.class.getSimpleName() + '[' + this.type.getSimpleName() + " " + this.id + " (numeric)]";
       }
     }

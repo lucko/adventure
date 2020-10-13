@@ -25,9 +25,7 @@ package net.kyori.adventure.text;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -70,14 +68,13 @@ abstract class NBTComponentImpl<C extends NBTComponent<C, B>, B extends NBTCompo
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.concat(
-      Stream.of(
-        ExaminableProperty.of("nbtPath", this.nbtPath),
-        ExaminableProperty.of("interpret", this.interpret)
-      ),
-      super.examinableProperties()
-    );
+  public @NonNull String toString() {
+    return "NBTComponentImpl{" +
+      "nbtPath='" + this.nbtPath + '\'' +
+      ", interpret=" + this.interpret +
+      ", children=" + this.children +
+      ", style=" + this.style +
+      '}';
   }
 
   static abstract class BuilderImpl<C extends NBTComponent<C, B>, B extends NBTComponentBuilder<C, B>> extends AbstractComponentBuilder<C, B> implements NBTComponentBuilder<C, B> {

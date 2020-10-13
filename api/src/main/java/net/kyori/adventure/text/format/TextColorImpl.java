@@ -23,6 +23,7 @@
  */
 package net.kyori.adventure.text.format;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 final class TextColorImpl implements TextColor {
@@ -51,7 +52,7 @@ final class TextColorImpl implements TextColor {
   }
 
   @Override
-  public String toString() {
+  public @NonNull String toString() {
     return this.asHexString();
   }
 }

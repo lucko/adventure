@@ -30,8 +30,6 @@ import java.util.List;
 import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
-import net.kyori.examination.ExaminableProperty;
 import org.checkerframework.checker.index.qual.NonNegative;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -161,10 +159,10 @@ final class ListBinaryTagImpl implements ListBinaryTag {
   }
 
   @Override
-  public @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
-    return Stream.of(
-      ExaminableProperty.of("tags", this.tags),
-      ExaminableProperty.of("type", this.type)
-    );
+  public @NonNull String toString() {
+    return "ListBinaryTagImpl{" +
+      "tags=" + this.tags +
+      ", type=" + this.type +
+      '}';
   }
 }

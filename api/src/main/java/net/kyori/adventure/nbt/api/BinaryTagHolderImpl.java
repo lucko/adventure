@@ -60,7 +60,7 @@ final class BinaryTagHolderImpl implements BinaryTagHolder {
   }
 
   @Override
-  public String toString() {
+  public @NonNull String toString() {
     return this.string;
   }
 }
