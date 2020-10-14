@@ -12,8 +12,8 @@ plugins {
   id "net.kyori.indra.publishing.sonatype" version "$indraVersion" apply false
 }
 
-group "net.kyori"
-version "4.0.0-SNAPSHOT"
+group "me.lucko"
+version "4.0.0"
 description "A user-interface library for Minecraft: Java Edition."
 
 subprojects {

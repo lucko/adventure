@@ -3,11 +3,11 @@ rootProject.name = "adventure-parent"
 // Unfortunately, we cannot make this any nicer really
 
 include "api"
-include "serializer-configurate3"
+//include "serializer-configurate3"
 
 [
-  "api",
-  "serializer-configurate3"
+  "api"//,
+  //"serializer-configurate3"
 ].each {
   findProject(":$it")?.name = "adventure-$it"
 }
