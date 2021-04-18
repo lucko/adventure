@@ -27,7 +27,7 @@ import java.util.function.Supplier;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.key.Keyed;
 import net.kyori.adventure.util.Index;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus;
 

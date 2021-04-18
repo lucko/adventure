@@ -27,7 +27,7 @@ import java.util.Set;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import net.kyori.adventure.util.Index;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;

@@ -23,7 +23,7 @@
  */
 package net.kyori.adventure.util;
 
-import net.kyori.examination.string.StringExaminer;
+import net.kyori.adventure.util.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Objects;

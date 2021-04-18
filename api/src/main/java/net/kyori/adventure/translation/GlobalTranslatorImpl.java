@@ -31,7 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.renderer.TranslatableComponentRenderer;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

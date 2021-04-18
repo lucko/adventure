@@ -24,7 +24,7 @@
 package net.kyori.adventure.nbt;
 
 import java.util.stream.Stream;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.Debug;

@@ -25,8 +25,8 @@ package net.kyori.adventure.sound;
 
 import java.util.stream.Stream;
 import net.kyori.adventure.util.ShadyPines;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
+import net.kyori.adventure.util.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

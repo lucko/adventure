@@ -28,7 +28,7 @@ import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TranslatableComponent;
 import net.kyori.adventure.text.renderer.TranslatableComponentRenderer;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**

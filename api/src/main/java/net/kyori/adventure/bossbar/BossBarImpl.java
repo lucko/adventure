@@ -34,8 +34,8 @@ import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import net.kyori.adventure.text.Component;
-import net.kyori.examination.ExaminableProperty;
-import net.kyori.examination.string.StringExaminer;
+import net.kyori.adventure.util.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.string.StringExaminer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import static java.util.Objects.requireNonNull;

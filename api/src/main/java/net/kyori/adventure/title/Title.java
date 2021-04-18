@@ -26,7 +26,7 @@ package net.kyori.adventure.title;
 import java.time.Duration;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.util.Ticks;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;

@@ -29,7 +29,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.util.Nag;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.VisibleForTesting;

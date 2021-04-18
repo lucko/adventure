@@ -44,7 +44,7 @@ import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.ComponentSerializer;
 import net.kyori.adventure.util.Buildable;
 import net.kyori.adventure.util.IntFunction2;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;

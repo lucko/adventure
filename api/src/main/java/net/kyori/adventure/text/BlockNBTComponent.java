@@ -24,7 +24,7 @@
 package net.kyori.adventure.text;
 
 import java.util.regex.Matcher;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.Contract;
 

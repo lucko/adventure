@@ -23,7 +23,7 @@
  */
 package net.kyori.adventure.nbt;
 
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**

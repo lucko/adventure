@@ -26,7 +26,7 @@ package net.kyori.adventure.key;
 import java.util.Objects;
 import java.util.function.IntPredicate;
 import java.util.stream.Stream;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.VisibleForTesting;
 

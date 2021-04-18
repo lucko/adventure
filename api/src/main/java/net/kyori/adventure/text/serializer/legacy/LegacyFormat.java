@@ -28,8 +28,8 @@ import java.util.stream.Stream;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.Examinable;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

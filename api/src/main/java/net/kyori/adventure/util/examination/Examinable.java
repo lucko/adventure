@@ -1,7 +1,7 @@
 /*
- * This file is part of adventure, licensed under the MIT License.
+ * This file is part of examination, licensed under the MIT License.
  *
- * Copyright (c) 2017-2021 KyoriPowered
+ * Copyright (c) 2018-2021 KyoriPowered
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,19 +21,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.adventure.nbt;
+package net.kyori.adventure.util.examination;
 
-import net.kyori.adventure.util.examination.string.StringExaminer;
+import java.util.stream.Stream;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-abstract class AbstractBinaryTag implements BinaryTag {
-  @Override
-  public final @NonNull String examinableName() {
-    return this.type().toString();
+/**
+ * Something that can be examined.
+ *
+ * @since 1.0.0
+ */
+public interface Examinable {
+  /**
+   * Gets the examinable name.
+   *
+   * @return the examinable name
+   * @since 1.0.0
+   */
+  default @NonNull String examinableName() {
+    return this.getClass().getSimpleName();
   }
 
-  @Override
-  public final String toString() {
-    return this.examine(StringExaminer.simpleEscaping());
+  /**
+   * Gets a stream of examinable properties.
+   *
+   * @return a stream of examinable properties
+   * @since 1.0.0
+   */
+  default @NonNull Stream<? extends ExaminableProperty> examinableProperties() {
+    return Stream.empty();
+  }
+
+  /**
+   * Examines.
+   *
+   * <p>You should not override this method.</p>
+   *
+   * @param examiner the examiner
+   * @param <R> the result type
+   * @return the examination result
+   * @since 1.0.0
+   */
+  default /* final */ <R> @NonNull R examine(final @NonNull Examiner<R> examiner) {
+    return examiner.examine(this);
   }
 }

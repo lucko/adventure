@@ -23,8 +23,8 @@
  */
 package net.kyori.adventure.util;
 
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.Examinable;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.common.value.qual.IntRange;
 

@@ -35,7 +35,7 @@ import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.event.HoverEventSource;
 import net.kyori.adventure.util.Buildable;
 import net.kyori.adventure.util.ShadyPines;
-import net.kyori.examination.Examinable;
+import net.kyori.adventure.util.examination.Examinable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;

@@ -32,7 +32,7 @@ import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.index.qual.NonNegative;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;

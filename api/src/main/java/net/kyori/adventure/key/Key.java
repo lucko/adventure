@@ -24,8 +24,8 @@
 package net.kyori.adventure.key;
 
 import java.util.stream.Stream;
-import net.kyori.examination.Examinable;
-import net.kyori.examination.ExaminableProperty;
+import net.kyori.adventure.util.examination.Examinable;
+import net.kyori.adventure.util.examination.ExaminableProperty;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.intellij.lang.annotations.Pattern;
 
