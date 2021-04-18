@@ -13,8 +13,8 @@ plugins {
   id "com.adarshr.test-logger" version "3.0.0" apply false
 }
 
-group "net.kyori"
-version "4.8.0-SNAPSHOT"
+group "me.lucko"
+version "4.7.0"
 description "A user-interface library for Minecraft: Java Edition."
 
 def applyJarMetadata(project, moduleName) {
@@ -59,7 +59,6 @@ subprojects {
     }
 
     dependencies {
-      api(platform(project(":adventure-bom")))
       checkstyle("ca.stellardrift:stylecheck:0.1")
       testImplementation("com.google.guava:guava-testlib:30.1.1-jre")
       testImplementation("com.google.truth:truth:1.1.2")
